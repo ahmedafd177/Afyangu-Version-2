@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-01T23:40:12.703496" rpa="false" schemaversion="5">
+<suite id="s1" name="resetPin" source="D:\HMIS-Automation\AfyanguV2\Test\resetPin.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:13.193314" level="INFO">Opening browser 'chrome' to base url 'https://afyangu.kenya-hie.health/sign-in'.</msg>
+<arg>${URL_SIGN_IN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-01T23:40:13.193002" elapsed="4.238049"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-01T23:40:17.431612" elapsed="0.044004"/>
+</kw>
+<status status="PASS" start="2025-02-01T23:40:13.192233" elapsed="4.283745"/>
+</kw>
+<test id="s1-t1" name="Reset PIN With Valid ID" line="75">
+<kw name="Navigate To Reset PIN Page">
+<kw name="Get Location" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:17.491723" level="INFO">${current_url} = https://afyangu.kenya-hie.health/sign-in</msg>
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<status status="PASS" start="2025-02-01T23:40:17.478626" elapsed="0.013192"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-01T23:40:17.492431" level="INFO">Current URL is: https://afyangu.kenya-hie.health/sign-in</msg>
+<arg>Current URL is: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-01T23:40:17.492104" elapsed="0.000455"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${RESET_PIN_LINK}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-01T23:40:17.492858" elapsed="0.027257"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${RESET_PIN_LINK}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-01T23:40:17.520433" elapsed="0.350708"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-01T23:40:20.873646" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-01T23:40:17.871954" elapsed="3.002095"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:20.875681" level="INFO">Clicking element 'xpath://a[normalize-space(.)='Reset PIN']'.</msg>
+<arg>${RESET_PIN_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:20.874778" elapsed="0.141764"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-01T23:40:26.017767" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-01T23:40:21.016876" elapsed="5.001376"/>
+</kw>
+<doc>Navigates to the reset PIN page.</doc>
+<status status="PASS" start="2025-02-01T23:40:17.478018" elapsed="8.541241"/>
+</kw>
+<kw name="Input ID Number And Request OTP">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${INPUT_ID_RESET}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-01T23:40:26.025080" elapsed="0.042002"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:26.067956" level="INFO">Typing text '36401812' into text field 'xpath:/html/body/div/div[2]/div/form/div[3]/div[2]/input'.</msg>
+<arg>${INPUT_ID_RESET}</arg>
+<arg>${id_number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:26.067442" elapsed="0.181594"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-01T23:40:31.249916" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-01T23:40:26.249248" elapsed="5.000854"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:31.250624" level="INFO">Clicking element 'xpath:/html/body/div/div[2]/div/form/button'.</msg>
+<arg>${PROCEED_RESET}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:31.250350" elapsed="0.137795"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-01T23:40:36.389398" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-01T23:40:31.388510" elapsed="5.001014"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:36.390017" level="INFO">Clicking element 'xpath:/html/body/div/main/div/div/div[2]/button'.</msg>
+<arg>${SEND_CODE_SELECT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:36.389745" elapsed="0.096517"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-01T23:40:38.487561" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-01T23:40:36.486591" elapsed="2.001323"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:38.489329" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div/button'.</msg>
+<arg>${SEND_CODE_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:38.488522" elapsed="0.095259"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-01T23:40:41.584847" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-01T23:40:38.584067" elapsed="3.001257"/>
+</kw>
+<arg>${VALID_ID}</arg>
+<status status="PASS" start="2025-02-01T23:40:26.022034" elapsed="15.563792"/>
+</kw>
+<kw name="Get Value From User" owner="Dialogs">
+<msg time="2025-02-01T23:40:56.487037" level="INFO">${otp_code} = 39422</msg>
+<var>${otp_code}</var>
+<arg>Please enter the OTP received:</arg>
+<doc>Pauses execution and asks user to input a value.</doc>
+<status status="PASS" start="2025-02-01T23:40:41.587359" elapsed="14.899827"/>
+</kw>
+<kw name="Enter OTP And Proceed">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${OTP_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-01T23:40:56.495274" elapsed="0.069963"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:56.565719" level="INFO">Typing text '39422' into text field 'xpath:/html/body/div/main/div/div[2]/div/form/div[1]/div/div/div[2]/input'.</msg>
+<arg>${OTP_INPUT}</arg>
+<arg>${otp_code}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:56.565449" elapsed="0.149252"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:56.715621" level="INFO">Clicking element 'xpath:/html/body/div/main/div/div[2]/div/form/div[2]/button[2]'.</msg>
+<arg>${OTP_PROCEED_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:56.715181" elapsed="0.103502"/>
+</kw>
+<arg>${otp_code}</arg>
+<status status="PASS" start="2025-02-01T23:40:56.489144" elapsed="0.329665"/>
+</kw>
+<kw name="Set New PIN">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${NEW_PIN_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-01T23:40:56.819961" elapsed="0.481080"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:57.304025" level="INFO">Typing text '1234' into text field 'xpath:/html/body/div/main/div/div/div[2]/div/div/div/form/div[1]/div/div[1]/div[2]/input'.</msg>
+<arg>${NEW_PIN_INPUT}</arg>
+<arg>${new_pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:57.301828" elapsed="0.164425"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:57.466903" level="INFO">Clicking element 'xpath:/html/body/div/main/div/div/div[2]/div/div/div/form/div[1]/div/div[2]/img'.</msg>
+<arg>${HIDE_PIN_1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:57.466538" elapsed="0.097773"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:57.564794" level="INFO">Typing text '1234' into text field 'xpath:/html/body/div/main/div/div/div[2]/div/div/div/form/div[2]/div/div[1]/div[2]/input'.</msg>
+<arg>${CONFIRM_PIN_INPUT}</arg>
+<arg>${new_pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:57.564505" elapsed="0.131745"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:57.697035" level="INFO">Clicking element 'xpath:/html/body/div/main/div/div/div[2]/div/div/div/form/div[2]/div/div[2]/img'.</msg>
+<arg>${HIDE_PIN_2}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:57.696720" elapsed="0.087725"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-01T23:40:57.784865" level="INFO">Clicking element 'xpath:/html/body/div/main/div/div/div[2]/div/div/div/form/button[2]'.</msg>
+<arg>${PROCEED_RST_2}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-01T23:40:57.784638" elapsed="0.094237"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-01T23:41:07.879866" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-01T23:40:57.879062" elapsed="10.001287"/>
+</kw>
+<arg>${NEW_PIN}</arg>
+<status status="PASS" start="2025-02-01T23:40:56.819353" elapsed="11.061522"/>
+</kw>
+<doc>Test the basic PIN reset flow with a valid ID number.</doc>
+<tag>positive</tag>
+<tag>reset-pin</tag>
+<status status="PASS" start="2025-02-01T23:40:17.476253" elapsed="50.406130"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-01T23:41:07.888291" elapsed="2.265607"/>
+</kw>
+<status status="PASS" start="2025-02-01T23:40:12.706148" elapsed="57.448198"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">positive</stat>
+<stat pass="1" fail="0" skip="0">reset-pin</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="resetPin">resetPin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
