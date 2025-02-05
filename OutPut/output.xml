@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-05T16:14:11.549741" rpa="false" schemaversion="5">
+<suite id="s1" name="landingPage" source="D:\HMIS-Automation\AfyanguV2\Test\landingPage.robot">
+<test id="s1-t1" name="Test How To Register Navigation" line="9">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:11.956097" level="INFO">Opening browser 'chrome' to base url 'https://afyangu.kenya-hie.health/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-05T16:14:11.955716" elapsed="2.726652"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-02-05T16:14:14.683840" elapsed="0.144161"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-05T16:14:16.829496" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-05T16:14:14.828461" elapsed="2.001479"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:16.832652" level="INFO">Clicking element 'xpath=/html/body/div/header/div[2]/div[1]/button[1]'.</msg>
+<arg>${HOW_TO_REGISTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:16.831269" elapsed="0.095498"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-05T16:14:19.928129" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-05T16:14:16.927139" elapsed="3.001455"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:19.931236" level="INFO">Clicking element 'xpath=//img[@alt="logo"][@class="MinistryOfHealthLogo_moh_logo__v7ff3"]'.</msg>
+<arg>${MINISTRY_LOGO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:19.930127" elapsed="0.096192"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-05T16:14:21.027689" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-05T16:14:20.026751" elapsed="1.001343"/>
+</kw>
+<doc>Test navigation to How To Register section</doc>
+<tag>how to register section</tag>
+<status status="PASS" start="2025-02-05T16:14:11.954153" elapsed="9.075395"/>
+</test>
+<test id="s1-t2" name="Test FAQs Navigation" line="20">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:21.038715" level="INFO">Clicking element 'xpath=/html/body/div/header/div[2]/div[1]/button[2]'.</msg>
+<arg>${FAQS}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:21.037037" elapsed="0.106231"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${FQA_SEARCH}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-05T16:14:21.143790" elapsed="0.915835"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:22.060227" level="INFO">Typing text 'What is Afyangu' into text field 'xpath=/html/body/div/main/div/div[1]/input'.</msg>
+<arg>${FQA_SEARCH}</arg>
+<arg>What is Afyangu</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.059988" elapsed="0.177592"/>
+</kw>
+<kw name="Click Element If Exists">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.239315" elapsed="0.044985"/>
+</kw>
+<msg time="2025-02-05T16:14:22.284489" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${locator}</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.239088" elapsed="0.045482"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:22.285552" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[2]/div[1]/div[1]/div/h3/button'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.285225" elapsed="0.088937"/>
+</kw>
+<arg>${status}</arg>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>${locator} is Not Clickable</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.284884" elapsed="0.089402"/>
+</kw>
+<arg>${EXPAND_AFYANGU}</arg>
+<status status="PASS" start="2025-02-05T16:14:22.238520" elapsed="0.135883"/>
+</kw>
+<kw name="Click Element If Exists">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.376154" elapsed="0.027228"/>
+</kw>
+<msg time="2025-02-05T16:14:22.403728" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${locator}</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.375777" elapsed="0.028027"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:22.405008" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[2]/div[1]/div[2]/div/h3/button'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.404660" elapsed="0.096575"/>
+</kw>
+<arg>${status}</arg>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>${locator} is Not Clickable</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.404134" elapsed="0.097218"/>
+</kw>
+<arg>${EXPAND_AFYANGU_2}</arg>
+<status status="PASS" start="2025-02-05T16:14:22.374994" elapsed="0.126475"/>
+</kw>
+<kw name="Click Element If Exists">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.502306" elapsed="0.080601"/>
+</kw>
+<msg time="2025-02-05T16:14:22.583091" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${locator}</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.502143" elapsed="0.080983"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:22.583733" level="INFO">Clicking element 'xpath=//img[@alt="logo"][@class="MinistryOfHealthLogo_moh_logo__v7ff3"]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.583538" elapsed="0.084315"/>
+</kw>
+<arg>${status}</arg>
+<arg>Click Element</arg>
+<arg>${locator}</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>${locator} is Not Clickable</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.583309" elapsed="0.084742"/>
+</kw>
+<arg>${MINISTRY_LOGO}</arg>
+<status status="PASS" start="2025-02-05T16:14:22.501787" elapsed="0.166667"/>
+</kw>
+<doc>Test navigation for FAQs page</doc>
+<tag>FAQs Page</tag>
+<status status="PASS" start="2025-02-05T16:14:21.033665" elapsed="1.635238"/>
+</test>
+<test id="s1-t3" name="Test Contact Navigation" line="35">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:22.672408" level="INFO">Clicking element 'xpath=/html/body/div/header/div[2]/div[1]/button[3]'.</msg>
+<arg>${CONTACT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.671990" elapsed="0.097037"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-05T16:14:25.769886" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-05T16:14:22.769389" elapsed="3.000619"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:25.770815" level="INFO">Clicking element 'xpath=//img[@alt="logo"][@class="MinistryOfHealthLogo_moh_logo__v7ff3"]'.</msg>
+<arg>${MINISTRY_LOGO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:25.770497" elapsed="0.108050"/>
+</kw>
+<doc>Test navigation  for Contact Section</doc>
+<tag>contact section</tag>
+<status status="PASS" start="2025-02-05T16:14:22.670405" elapsed="3.208581"/>
+</test>
+<test id="s1-t4" name="Test Resources Navigation" line="42">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:25.881215" level="INFO">Clicking element 'xpath=/html/body/div/header/div[2]/div[1]/button[4]'.</msg>
+<arg>${RESOURCES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:25.880537" elapsed="0.095504"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-05T16:14:28.977131" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-05T16:14:25.976444" elapsed="3.000865"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:28.978182" level="INFO">Clicking element 'xpath=/html/body/div[4]/div[1]/button[1]'.</msg>
+<arg>${TERMS_CONDITION}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:28.977770" elapsed="0.122608"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-05T16:14:31.101360" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-05T16:14:29.100787" elapsed="2.001051"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:31.103797" level="INFO">Clicking element 'xpath=/html/body/div[4]/div[1]/button[2]'.</msg>
+<arg>${PRIVACY_POLICY}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:31.102978" elapsed="0.118909"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-05T16:14:33.223800" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-05T16:14:31.222356" elapsed="2.001915"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:33.227800" level="INFO">Clicking element 'xpath=/html/body/div[4]/div[2]/button/img'.</msg>
+<arg>${RESOURCES_BACK_BTN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:33.226389" elapsed="0.117245"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:33.345229" level="INFO">Clicking element 'xpath=/html/body/div/header/div[2]/div[1]/button[4]'.</msg>
+<arg>${RESOURCES}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:33.344760" elapsed="0.093770"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CANCEL_BTN_PRIVACY}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-02-05T16:14:33.439341" elapsed="0.298594"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-05T16:14:35.741920" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-05T16:14:33.740566" elapsed="2.001793"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-02-05T16:14:35.744884" level="INFO">Clicking element 'xpath=/html/body/div[4]/div[3]/div/div/div[3]/button[1]'.</msg>
+<arg>${CANCEL_BTN_PRIVACY}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-05T16:14:35.743838" elapsed="0.147276"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-02-05T16:14:36.892990" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-02-05T16:14:35.891655" elapsed="1.001807"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-05T16:14:36.895425" elapsed="2.240409"/>
+</kw>
+<doc>Test navigation for Resource page</doc>
+<tag>resources Page</tag>
+<status status="PASS" start="2025-02-05T16:14:25.879768" elapsed="13.257013"/>
+</test>
+<doc>Test navigation functionality of Afyangu website
+Includes tests for How to Register, FAQs Page, Contact, and Resources sections</doc>
+<status status="PASS" start="2025-02-05T16:14:11.552167" elapsed="27.589640"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">contact section</stat>
+<stat pass="1" fail="0" skip="0">FAQs Page</stat>
+<stat pass="1" fail="0" skip="0">how to register section</stat>
+<stat pass="1" fail="0" skip="0">resources Page</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="landingPage">landingPage</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
