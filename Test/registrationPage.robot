@@ -48,10 +48,10 @@ Registration Workflow
     # PIN Setup
     Wait Until Element Is Visible    ${PIN_INPUT}    timeout=10s
     Input Text                       ${PIN_INPUT}           3435
-    Click Element    xpath:/html/body/div/main/div/div[2]/div[2]/div/div/div/form/div[1]/div/div[2]/img
+    Click Element                    ${HIDE_PASSWORD_RG}
     Sleep    2s
     Input Text                       ${CONFIRM_PIN_INPUT}   3435
-    Click Element    xpath:/html/body/div/main/div/div[2]/div[2]/div/div/div/form/div[2]/div/div[2]/img
+    Click Element                    ${HIDE_PASSWORD_RG_2}
     Sleep    4s
     Click Element                    ${FINAL_SUBMIT}
     Sleep    3s
