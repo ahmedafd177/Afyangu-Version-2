@@ -4,7 +4,7 @@ ${BROWSER}               chrome
 ${URL}                  https://afyangu.kenya-hie.health/
 ${URL_SIGN_IN}          ${URL}/sign-in
 ${TIMEOUT}              10s
-${ANIMATION_DELAY}      0.5s
+
 
 # Navigation Elements
 ${MINISTRY_LOGO}        xpath=//img[@alt="logo"][@class="MinistryOfHealthLogo_moh_logo__v7ff3"]

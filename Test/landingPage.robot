@@ -19,22 +19,18 @@ Test How To Register Navigation
 
 Test FAQs Navigation
     [Documentation]    Test navigation for FAQs page
-    [Tags]                FAQs Page
+    [Tags]            FAQs Page
 
     Click Element    ${FAQS}
-    Sleep    1s
-#    adding Search text field
-    Input Text                       ${FQA_SEARCH}                What is Afyangu
-    Sleep      1s
-    Click Element                    ${EXPAND_AFYANGU}
-    Sleep        1s
-    Click Element                    ${EXPAND_AFYANGU_2}
-    Sleep         3s
-    Click Element                    ${GET_IN_TOUCH_BTN}
-    Log                        Get in Touch Button is Not Clickable
-    Sleep      2s
-    Click Element                    ${MINISTRY_LOGO}
-    Sleep   1s
+    Wait Until Element Is Visible    ${FQA_SEARCH}    timeout=10s
+    Input Text    ${FQA_SEARCH}    What is Afyangu
+
+    Click Element If Exists    ${EXPAND_AFYANGU}
+    Click Element If Exists    ${EXPAND_AFYANGU_2}
+
+    Click And Verify Navigation    ${GET_IN_TOUCH_BTN}    ${EXPECTED_PAGE_ELEMENT}
+
+    Click Element If Exists    ${MINISTRY_LOGO}
 
 Test Contact Navigation
     [Documentation]    Test navigation  for Contact Section
@@ -63,3 +59,16 @@ Test Resources Navigation
     Sleep    1s
     [Teardown]       Close Browser
 
+
+*** Keywords ***
+Click Element If Exists
+    [Arguments]    ${locator}
+    ${status}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator}    timeout=5s
+    Run Keyword If    ${status}    Click Element    ${locator}    ELSE    Log    ${locator} is Not Clickable
+
+Click And Verify Navigation
+    [Arguments]    ${button}    ${expected_element}
+    ${status}=    Run Keyword And Return Status    Click Element    ${button}
+    Run Keyword If    not ${status}    Fail    ${button} is Not Clickable - Test Failed!
+
+    Wait Until Element Is Visible    ${expected_element}    timeout=10s
