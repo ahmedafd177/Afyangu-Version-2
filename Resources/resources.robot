@@ -55,5 +55,6 @@ ${HIDE_PASSWORD_LOGIN}         xpath:/html/body/div/div[2]/div/form/div[5]/div[2
 ${SEND_CODE_BUTTON_LOGIN}      xpath:/html/body/div/div[2]/div/form/button
 ${OTP_INPUT_LOGIN}             xpath:/html/body/div/main/div/div[2]/div/form/div[1]/div/div/div[2]/input
 ${OTP_PROCEED_BUTTON}          xpath:/html/body/div/main/div/div[2]/div/form/div[2]/button[2]
+${ERROR_MESSAGE}               xpath:/html/body/div/div[1]/div/div/div[1]/div[2]
 
 # Reset PIN Flow Locators

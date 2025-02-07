@@ -1,302 +1,521 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-05T16:14:11.549741" rpa="false" schemaversion="5">
-<suite id="s1" name="landingPage" source="D:\HMIS-Automation\AfyanguV2\Test\landingPage.robot">
-<test id="s1-t1" name="Test How To Register Navigation" line="9">
+<robot generator="Robot 7.1.1 (Python 3.13.1 on win32)" generated="2025-02-06T18:26:50.300842" rpa="false" schemaversion="5">
+<suite id="s1" name="loginPage" source="D:\HMIS-Automation\AfyanguV2\Test\loginPage.robot">
+<kw name="Initialize Test Suite" type="SETUP">
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-02-06T18:26:50.912092" level="INFO" html="true">Directory '&lt;a href="file://D:\HMIS-Automation\AfyanguV2\Test\screenshots"&gt;D:\HMIS-Automation\AfyanguV2\Test\screenshots&lt;/a&gt;' already exists.</msg>
+<arg>${SCREENSHOT_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-02-06T18:26:50.911727" elapsed="0.000469"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-02-06T18:26:50.912683" level="INFO" html="true">Directory '&lt;a href="file://D:\HMIS-Automation\AfyanguV2\Test\logs"&gt;D:\HMIS-Automation\AfyanguV2\Test\logs&lt;/a&gt;' already exists.</msg>
+<arg>${LOG_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-02-06T18:26:50.912420" elapsed="0.000377"/>
+</kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:11.956097" level="INFO">Opening browser 'chrome' to base url 'https://afyangu.kenya-hie.health/'.</msg>
+<msg time="2025-02-06T18:26:50.913364" level="INFO">Opening browser 'chrome' to base url 'https://afyangu.kenya-hie.health/'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-02-05T16:14:11.955716" elapsed="2.726652"/>
+<status status="PASS" start="2025-02-06T18:26:50.913038" elapsed="4.075399"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-02-05T16:14:14.683840" elapsed="0.144161"/>
+<status status="PASS" start="2025-02-06T18:26:54.990246" elapsed="0.041761"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-05T16:14:16.829496" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-05T16:14:14.828461" elapsed="2.001479"/>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-02-06T18:26:55.032378" elapsed="0.002643"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:16.832652" level="INFO">Clicking element 'xpath=/html/body/div/header/div[2]/div[1]/button[1]'.</msg>
-<arg>${HOW_TO_REGISTER}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:16.831269" elapsed="0.095498"/>
+<status status="PASS" start="2025-02-06T18:26:50.910635" elapsed="4.124741"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-05T16:14:19.928129" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-05T16:14:16.927139" elapsed="3.001455"/>
+<test id="s1-t1" name="Valid Login Test" line="77">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Execute Login Workflow">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-06T18:26:55.048522" level="INFO">${timestamp} = 20250206_182655</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-06T18:26:55.047871" elapsed="0.000745"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:19.931236" level="INFO">Clicking element 'xpath=//img[@alt="logo"][@class="MinistryOfHealthLogo_moh_logo__v7ff3"]'.</msg>
-<arg>${MINISTRY_LOGO}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:19.930127" elapsed="0.096192"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-05T16:14:21.027689" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-05T16:14:20.026751" elapsed="1.001343"/>
-</kw>
-<doc>Test navigation to How To Register section</doc>
-<tag>how to register section</tag>
-<status status="PASS" start="2025-02-05T16:14:11.954153" elapsed="9.075395"/>
-</test>
-<test id="s1-t2" name="Test FAQs Navigation" line="20">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:21.038715" level="INFO">Clicking element 'xpath=/html/body/div/header/div[2]/div[1]/button[2]'.</msg>
-<arg>${FAQS}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:21.037037" elapsed="0.106231"/>
-</kw>
+<try>
+<branch type="TRY">
+<kw name="Wait And Click">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${FQA_SEARCH}</arg>
+<msg time="2025-02-06T18:27:05.466902" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-06T18:27:05.467226" level="FAIL">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<arg>${element}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-05T16:14:21.143790" elapsed="0.915835"/>
+<status status="FAIL" start="2025-02-06T18:26:55.050213" elapsed="10.420893">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:22.060227" level="INFO">Typing text 'What is Afyangu' into text field 'xpath=/html/body/div/main/div/div[1]/input'.</msg>
-<arg>${FQA_SEARCH}</arg>
-<arg>What is Afyangu</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.059988" elapsed="0.177592"/>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:05.471404" elapsed="0.000045"/>
 </kw>
-<kw name="Click Element If Exists">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:05.471669" elapsed="0.000044"/>
+</kw>
+<arg>${LOGIN_BUTTON}</arg>
+<status status="FAIL" start="2025-02-06T18:26:55.049301" elapsed="10.422668">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</kw>
+<kw name="Input Credentials">
+<arg>${id}</arg>
+<arg>${pin}</arg>
+<status status="NOT RUN" start="2025-02-06T18:27:05.472359" elapsed="0.000078"/>
+</kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>timeout=5s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.239315" elapsed="0.044985"/>
-</kw>
-<msg time="2025-02-05T16:14:22.284489" level="INFO">${status} = True</msg>
 <var>${status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${locator}</arg>
-<arg>timeout=5s</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.239088" elapsed="0.045482"/>
+<status status="NOT RUN" start="2025-02-06T18:27:05.472722" elapsed="0.000068"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'True' and '${expected_result}' == 'invalid'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}/error_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:05.473321" elapsed="0.000060"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Error message detected as expected</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:05.473602" elapsed="0.000043"/>
+</kw>
+<return>
+<value>${TRUE}</value>
+<status status="NOT RUN" start="2025-02-06T18:27:05.473766" elapsed="0.000050"/>
+</return>
+<status status="NOT RUN" start="2025-02-06T18:27:05.473020" elapsed="0.000867"/>
+</branch>
+<branch type="ELSE IF" condition="'${status}' == 'True' and '${expected_result}' == 'valid'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}/unexpected_error_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:05.474172" elapsed="0.000045"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<arg>Unexpected error occurred during login</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:05.474369" elapsed="0.000044"/>
+</kw>
+<status status="NOT RUN" start="2025-02-06T18:27:05.473982" elapsed="0.000509"/>
+</branch>
+<status status="NOT RUN" start="2025-02-06T18:27:05.472982" elapsed="0.001664"/>
+</if>
+<status status="FAIL" start="2025-02-06T18:26:55.048918" elapsed="10.425862">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</branch>
+<branch type="EXCEPT" assign="${error}">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-06T18:27:05.589361" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Test/screenshots/exception_20250206_182655.png"&gt;&lt;img src="../Test/screenshots/exception_20250206_182655.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/exception_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-06T18:27:05.475165" elapsed="0.114389"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-06T18:27:05.590228" level="ERROR">Exception occurred: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<arg>Exception occurred: ${error}</arg>
+<arg>ERROR</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-06T18:27:05.589957" elapsed="0.000903"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-02-06T18:27:05.591567" level="FAIL">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<arg>Test failed with exception: ${error}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-02-06T18:27:05.591153" elapsed="0.000619">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-02-06T18:27:05.474961" elapsed="0.116961">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</branch>
+<status status="FAIL" start="2025-02-06T18:26:55.048820" elapsed="10.543244">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</try>
+<arg>${USER_ID}</arg>
+<arg>${USER_PIN}</arg>
+<arg>valid</arg>
+<status status="FAIL" start="2025-02-06T18:26:55.045665" elapsed="10.546957">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</kw>
+<arg>Execute Login Workflow</arg>
+<arg>${USER_ID}</arg>
+<arg>${USER_PIN}</arg>
+<arg>valid</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="FAIL" start="2025-02-06T18:26:55.044608" elapsed="10.548229">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:22.285552" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[2]/div[1]/div[1]/div/h3/button'.</msg>
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.285225" elapsed="0.088937"/>
-</kw>
-<arg>${status}</arg>
-<arg>Click Element</arg>
-<arg>${locator}</arg>
-<arg>ELSE</arg>
-<arg>Log</arg>
-<arg>${locator} is Not Clickable</arg>
+<msg time="2025-02-06T18:27:05.596424" level="FAIL">Variable '${TEST_STATUS}' not found. Did you mean:
+    ${PREV_TEST_STATUS}</msg>
+<arg>'${TEST_STATUS}' == 'PASS'</arg>
+<arg>Continue Valid Login Flow</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.284884" elapsed="0.089402"/>
+<status status="FAIL" start="2025-02-06T18:27:05.593378" elapsed="0.003130">Variable '${TEST_STATUS}' not found. Did you mean:
+    ${PREV_TEST_STATUS}</status>
 </kw>
-<arg>${EXPAND_AFYANGU}</arg>
-<status status="PASS" start="2025-02-05T16:14:22.238520" elapsed="0.135883"/>
+<doc>Executes login workflow with valid credentials</doc>
+<tag>login</tag>
+<tag>otp</tag>
+<tag>valid_credentials</tag>
+<status status="FAIL" start="2025-02-06T18:26:55.035705" elapsed="10.561506">Several failures occurred:
+
+1) Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.
+
+2) Variable '${TEST_STATUS}' not found. Did you mean:
+    ${PREV_TEST_STATUS}</status>
+</test>
+<test id="s1-t2" name="Invalid ID Test" line="83">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Execute Login Workflow">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-06T18:27:05.602244" level="INFO">${timestamp} = 20250206_182705</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-06T18:27:05.601691" elapsed="0.000610"/>
 </kw>
-<kw name="Click Element If Exists">
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<try>
+<branch type="TRY">
+<kw name="Wait And Click">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>timeout=5s</arg>
+<msg time="2025-02-06T18:27:16.007446" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-06T18:27:16.007854" level="FAIL">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<arg>${element}</arg>
+<arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.376154" elapsed="0.027228"/>
+<status status="FAIL" start="2025-02-06T18:27:05.603428" elapsed="10.406907">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
 </kw>
-<msg time="2025-02-05T16:14:22.403728" level="INFO">${status} = True</msg>
-<var>${status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${locator}</arg>
-<arg>timeout=5s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.375777" elapsed="0.028027"/>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:16.010717" elapsed="0.000076"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:22.405008" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[2]/div[1]/div[2]/div/h3/button'.</msg>
-<arg>${locator}</arg>
+<arg>${element}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.404660" elapsed="0.096575"/>
+<status status="NOT RUN" start="2025-02-06T18:27:16.011055" elapsed="0.000133"/>
 </kw>
-<arg>${status}</arg>
-<arg>Click Element</arg>
-<arg>${locator}</arg>
-<arg>ELSE</arg>
-<arg>Log</arg>
-<arg>${locator} is Not Clickable</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.404134" elapsed="0.097218"/>
+<arg>${LOGIN_BUTTON}</arg>
+<status status="FAIL" start="2025-02-06T18:27:05.602776" elapsed="10.408703">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
 </kw>
-<arg>${EXPAND_AFYANGU_2}</arg>
-<status status="PASS" start="2025-02-05T16:14:22.374994" elapsed="0.126475"/>
+<kw name="Input Credentials">
+<arg>${id}</arg>
+<arg>${pin}</arg>
+<status status="NOT RUN" start="2025-02-06T18:27:16.011844" elapsed="0.000073"/>
 </kw>
-<kw name="Click Element If Exists">
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>timeout=5s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.502306" elapsed="0.080601"/>
-</kw>
-<msg time="2025-02-05T16:14:22.583091" level="INFO">${status} = True</msg>
 <var>${status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${locator}</arg>
-<arg>timeout=5s</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.502143" elapsed="0.080983"/>
+<status status="NOT RUN" start="2025-02-06T18:27:16.012179" elapsed="0.000065"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:22.583733" level="INFO">Clicking element 'xpath=//img[@alt="logo"][@class="MinistryOfHealthLogo_moh_logo__v7ff3"]'.</msg>
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.583538" elapsed="0.084315"/>
+<if>
+<branch type="IF" condition="'${status}' == 'True' and '${expected_result}' == 'invalid'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}/error_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:16.012696" elapsed="0.000068"/>
 </kw>
-<arg>${status}</arg>
-<arg>Click Element</arg>
-<arg>${locator}</arg>
-<arg>ELSE</arg>
-<arg>Log</arg>
-<arg>${locator} is Not Clickable</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.583309" elapsed="0.084742"/>
+<kw name="Log" owner="BuiltIn">
+<arg>Error message detected as expected</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:16.012991" elapsed="0.000065"/>
 </kw>
-<arg>${MINISTRY_LOGO}</arg>
-<status status="PASS" start="2025-02-05T16:14:22.501787" elapsed="0.166667"/>
+<return>
+<value>${TRUE}</value>
+<status status="NOT RUN" start="2025-02-06T18:27:16.013183" elapsed="0.000060"/>
+</return>
+<status status="NOT RUN" start="2025-02-06T18:27:16.012438" elapsed="0.000902"/>
+</branch>
+<branch type="ELSE IF" condition="'${status}' == 'True' and '${expected_result}' == 'valid'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}/unexpected_error_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:16.013655" elapsed="0.000064"/>
 </kw>
-<doc>Test navigation for FAQs page</doc>
-<tag>FAQs Page</tag>
-<status status="PASS" start="2025-02-05T16:14:21.033665" elapsed="1.635238"/>
+<kw name="Fail" owner="BuiltIn">
+<arg>Unexpected error occurred during login</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:16.013934" elapsed="0.000063"/>
+</kw>
+<status status="NOT RUN" start="2025-02-06T18:27:16.013424" elapsed="0.000667"/>
+</branch>
+<status status="NOT RUN" start="2025-02-06T18:27:16.012390" elapsed="0.001789"/>
+</if>
+<status status="FAIL" start="2025-02-06T18:27:05.602481" elapsed="10.411802">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</branch>
+<branch type="EXCEPT" assign="${error}">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-06T18:27:16.119032" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Test/screenshots/exception_20250206_182705.png"&gt;&lt;img src="../Test/screenshots/exception_20250206_182705.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/exception_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-06T18:27:16.014774" elapsed="0.104401"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-06T18:27:16.119914" level="ERROR">Exception occurred: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<arg>Exception occurred: ${error}</arg>
+<arg>ERROR</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-06T18:27:16.119491" elapsed="0.001321"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-02-06T18:27:16.121846" level="FAIL">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<arg>Test failed with exception: ${error}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-02-06T18:27:16.121266" elapsed="0.000860">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-02-06T18:27:16.014523" elapsed="0.107845">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</branch>
+<status status="FAIL" start="2025-02-06T18:27:05.602426" elapsed="10.520166">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</try>
+<arg>${INVALID_USER_ID}</arg>
+<arg>${USER_PIN}</arg>
+<arg>invalid</arg>
+<status status="FAIL" start="2025-02-06T18:27:05.600881" elapsed="10.522014">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</kw>
+<arg>Execute Login Workflow</arg>
+<arg>${INVALID_USER_ID}</arg>
+<arg>${USER_PIN}</arg>
+<arg>invalid</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="FAIL" start="2025-02-06T18:27:05.599795" elapsed="10.524756">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</kw>
+<kw name="Verify Error State">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-02-06T18:27:26.484041" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-06T18:27:26.484231" level="FAIL">Element 'xapth:/html/body/div/div[1]/div/div/div[1]/div[2]' not visible after 10 seconds.</msg>
+<arg>${ERROR_MESSAGE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-02-06T18:27:16.125858" elapsed="10.360695">Element 'xapth:/html/body/div/div[1]/div/div/div[1]/div[2]' not visible after 10 seconds.</status>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${error_text}</var>
+<arg>${ERROR_MESSAGE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:26.486965" elapsed="0.000078"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${error_text}</arg>
+<arg>${EXPECTED_ERROR_MESSAGES}[${error_type}]</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:26.487297" elapsed="0.000065"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}/${error_type}_error.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:26.487610" elapsed="0.000063"/>
+</kw>
+<arg>invalid_id</arg>
+<status status="FAIL" start="2025-02-06T18:27:16.125261" elapsed="10.362642">Element 'xapth:/html/body/div/div[1]/div/div/div[1]/div[2]' not visible after 10 seconds.</status>
+</kw>
+<doc>Tests login with invalid user ID</doc>
+<tag>invalid_id</tag>
+<tag>login</tag>
+<tag>otp</tag>
+<status status="FAIL" start="2025-02-06T18:27:05.598594" elapsed="20.890050">Several failures occurred:
+
+1) Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.
+
+2) Element 'xapth:/html/body/div/div[1]/div/div/div[1]/div[2]' not visible after 10 seconds.</status>
 </test>
-<test id="s1-t3" name="Test Contact Navigation" line="35">
+<test id="s1-t3" name="Invalid PIN Test" line="89">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Execute Login Workflow">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-02-06T18:27:26.495166" level="INFO">${timestamp} = 20250206_182726</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-02-06T18:27:26.494482" elapsed="0.000803"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Wait And Click">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-02-06T18:27:36.911330" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-06T18:27:36.911511" level="FAIL">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<arg>${element}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-02-06T18:27:26.497043" elapsed="10.417054">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:36.914496" elapsed="0.000076"/>
+</kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:22.672408" level="INFO">Clicking element 'xpath=/html/body/div/header/div[2]/div[1]/button[3]'.</msg>
-<arg>${CONTACT}</arg>
+<arg>${element}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.671990" elapsed="0.097037"/>
+<status status="NOT RUN" start="2025-02-06T18:27:36.914825" elapsed="0.000062"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-05T16:14:25.769886" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-05T16:14:22.769389" elapsed="3.000619"/>
+<arg>${LOGIN_BUTTON}</arg>
+<status status="FAIL" start="2025-02-06T18:27:26.496081" elapsed="10.419038">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:25.770815" level="INFO">Clicking element 'xpath=//img[@alt="logo"][@class="MinistryOfHealthLogo_moh_logo__v7ff3"]'.</msg>
-<arg>${MINISTRY_LOGO}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:25.770497" elapsed="0.108050"/>
+<kw name="Input Credentials">
+<arg>${id}</arg>
+<arg>${pin}</arg>
+<status status="NOT RUN" start="2025-02-06T18:27:36.915470" elapsed="0.000071"/>
 </kw>
-<doc>Test navigation  for Contact Section</doc>
-<tag>contact section</tag>
-<status status="PASS" start="2025-02-05T16:14:22.670405" elapsed="3.208581"/>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${status}</var>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:36.915796" elapsed="0.000065"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'True' and '${expected_result}' == 'invalid'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}/error_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:36.916323" elapsed="0.000065"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Error message detected as expected</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:36.916613" elapsed="0.000063"/>
+</kw>
+<return>
+<value>${TRUE}</value>
+<status status="NOT RUN" start="2025-02-06T18:27:36.916838" elapsed="0.000109"/>
+</return>
+<status status="NOT RUN" start="2025-02-06T18:27:36.916043" elapsed="0.001061"/>
+</branch>
+<branch type="ELSE IF" condition="'${status}' == 'True' and '${expected_result}' == 'valid'">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}/unexpected_error_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:36.917585" elapsed="0.000067"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<arg>Unexpected error occurred during login</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:36.917870" elapsed="0.000061"/>
+</kw>
+<status status="NOT RUN" start="2025-02-06T18:27:36.917308" elapsed="0.000721"/>
+</branch>
+<status status="NOT RUN" start="2025-02-06T18:27:36.916001" elapsed="0.002115"/>
+</if>
+<status status="FAIL" start="2025-02-06T18:27:26.495665" elapsed="10.422558">Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</branch>
+<branch type="EXCEPT" assign="${error}">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-02-06T18:27:37.016236" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Test/screenshots/exception_20250206_182726.png"&gt;&lt;img src="../Test/screenshots/exception_20250206_182726.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}/exception_${timestamp}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-02-06T18:27:36.918662" elapsed="0.097842"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-02-06T18:27:37.017399" level="ERROR">Exception occurred: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<arg>Exception occurred: ${error}</arg>
+<arg>ERROR</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-02-06T18:27:37.017021" elapsed="0.001341"/>
+</kw>
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-02-06T18:27:37.019318" level="FAIL">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<arg>Test failed with exception: ${error}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-02-06T18:27:37.018829" elapsed="0.000760">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-02-06T18:27:36.918430" elapsed="0.101448">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</branch>
+<status status="FAIL" start="2025-02-06T18:27:26.495549" elapsed="10.524456">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</try>
+<arg>${USER_ID}</arg>
+<arg>${INVALID_USER_PIN}</arg>
+<arg>invalid</arg>
+<status status="FAIL" start="2025-02-06T18:27:26.493149" elapsed="10.527052">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</kw>
+<arg>Execute Login Workflow</arg>
+<arg>${USER_ID}</arg>
+<arg>${INVALID_USER_PIN}</arg>
+<arg>invalid</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="FAIL" start="2025-02-06T18:27:26.491955" elapsed="10.528399">Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</status>
+</kw>
+<kw name="Verify Error State">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-02-06T18:27:47.409480" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-02-06T18:27:47.409663" level="FAIL">Element 'xapth:/html/body/div/div[1]/div/div/div[1]/div[2]' not visible after 10 seconds.</msg>
+<arg>${ERROR_MESSAGE}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-02-06T18:27:37.021405" elapsed="10.390532">Element 'xapth:/html/body/div/div[1]/div/div/div[1]/div[2]' not visible after 10 seconds.</status>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${error_text}</var>
+<arg>${ERROR_MESSAGE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:47.412322" elapsed="0.000074"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${error_text}</arg>
+<arg>${EXPECTED_ERROR_MESSAGES}[${error_type}]</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:47.412650" elapsed="0.000067"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>${SCREENSHOT_DIR}/${error_type}_error.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2025-02-06T18:27:47.412968" elapsed="0.000062"/>
+</kw>
+<arg>invalid_pin</arg>
+<status status="FAIL" start="2025-02-06T18:27:37.020847" elapsed="10.392420">Element 'xapth:/html/body/div/div[1]/div/div/div[1]/div[2]' not visible after 10 seconds.</status>
+</kw>
+<doc>Tests login with invalid PIN</doc>
+<tag>invalid_pin</tag>
+<tag>login</tag>
+<tag>otp</tag>
+<status status="FAIL" start="2025-02-06T18:27:26.490582" elapsed="20.923372">Several failures occurred:
+
+1) Test failed with exception: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.
+
+2) Element 'xapth:/html/body/div/div[1]/div/div/div[1]/div[2]' not visible after 10 seconds.</status>
 </test>
-<test id="s1-t4" name="Test Resources Navigation" line="42">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:25.881215" level="INFO">Clicking element 'xpath=/html/body/div/header/div[2]/div[1]/button[4]'.</msg>
-<arg>${RESOURCES}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:25.880537" elapsed="0.095504"/>
+<kw name="Cleanup Test Suite" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-02-06T18:27:47.417305" elapsed="2.327197"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-05T16:14:28.977131" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-05T16:14:25.976444" elapsed="3.000865"/>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2025-02-06T18:27:49.747669" level="INFO" html="true">Removed file '&lt;a href="file://D:\HMIS-Automation\AfyanguV2\Test\screenshots\exception_20250206_182655.png"&gt;D:\HMIS-Automation\AfyanguV2\Test\screenshots\exception_20250206_182655.png&lt;/a&gt;'.</msg>
+<msg time="2025-02-06T18:27:49.748824" level="INFO" html="true">Removed file '&lt;a href="file://D:\HMIS-Automation\AfyanguV2\Test\screenshots\exception_20250206_182705.png"&gt;D:\HMIS-Automation\AfyanguV2\Test\screenshots\exception_20250206_182705.png&lt;/a&gt;'.</msg>
+<msg time="2025-02-06T18:27:49.749969" level="INFO" html="true">Removed file '&lt;a href="file://D:\HMIS-Automation\AfyanguV2\Test\screenshots\exception_20250206_182726.png"&gt;D:\HMIS-Automation\AfyanguV2\Test\screenshots\exception_20250206_182726.png&lt;/a&gt;'.</msg>
+<arg>${SCREENSHOT_DIR}/*.png</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2025-02-06T18:27:49.745173" elapsed="0.005305"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:28.978182" level="INFO">Clicking element 'xpath=/html/body/div[4]/div[1]/button[1]'.</msg>
-<arg>${TERMS_CONDITION}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:28.977770" elapsed="0.122608"/>
+<status status="PASS" start="2025-02-06T18:27:47.416480" elapsed="2.334453"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-05T16:14:31.101360" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-05T16:14:29.100787" elapsed="2.001051"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:31.103797" level="INFO">Clicking element 'xpath=/html/body/div[4]/div[1]/button[2]'.</msg>
-<arg>${PRIVACY_POLICY}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:31.102978" elapsed="0.118909"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-05T16:14:33.223800" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-05T16:14:31.222356" elapsed="2.001915"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:33.227800" level="INFO">Clicking element 'xpath=/html/body/div[4]/div[2]/button/img'.</msg>
-<arg>${RESOURCES_BACK_BTN}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:33.226389" elapsed="0.117245"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:33.345229" level="INFO">Clicking element 'xpath=/html/body/div/header/div[2]/div[1]/button[4]'.</msg>
-<arg>${RESOURCES}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:33.344760" elapsed="0.093770"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${CANCEL_BTN_PRIVACY}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-02-05T16:14:33.439341" elapsed="0.298594"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-05T16:14:35.741920" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-05T16:14:33.740566" elapsed="2.001793"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-02-05T16:14:35.744884" level="INFO">Clicking element 'xpath=/html/body/div[4]/div[3]/div/div/div[3]/button[1]'.</msg>
-<arg>${CANCEL_BTN_PRIVACY}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-02-05T16:14:35.743838" elapsed="0.147276"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-02-05T16:14:36.892990" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-02-05T16:14:35.891655" elapsed="1.001807"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-02-05T16:14:36.895425" elapsed="2.240409"/>
-</kw>
-<doc>Test navigation for Resource page</doc>
-<tag>resources Page</tag>
-<status status="PASS" start="2025-02-05T16:14:25.879768" elapsed="13.257013"/>
-</test>
-<doc>Test navigation functionality of Afyangu website
-Includes tests for How to Register, FAQs Page, Contact, and Resources sections</doc>
-<status status="PASS" start="2025-02-05T16:14:11.552167" elapsed="27.589640"/>
+<status status="FAIL" start="2025-02-06T18:26:50.303916" elapsed="59.447218"/>
 </suite>
 <statistics>
 <total>
-<stat pass="4" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">contact section</stat>
-<stat pass="1" fail="0" skip="0">FAQs Page</stat>
-<stat pass="1" fail="0" skip="0">how to register section</stat>
-<stat pass="1" fail="0" skip="0">resources Page</stat>
+<stat pass="0" fail="1" skip="0">invalid_id</stat>
+<stat pass="0" fail="1" skip="0">invalid_pin</stat>
+<stat pass="0" fail="3" skip="0">login</stat>
+<stat pass="0" fail="3" skip="0">otp</stat>
+<stat pass="0" fail="1" skip="0">valid_credentials</stat>
 </tag>
 <suite>
-<stat pass="4" fail="0" skip="0" id="s1" name="landingPage">landingPage</stat>
+<stat pass="0" fail="3" skip="0" id="s1" name="loginPage">loginPage</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-02-06T18:27:05.590228" level="ERROR">Exception occurred: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<msg time="2025-02-06T18:27:16.119914" level="ERROR">Exception occurred: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
+<msg time="2025-02-06T18:27:37.017399" level="ERROR">Exception occurred: Element 'xpath:/html/body/div/header/div[2]/div[2]/button[1]' not visible after 10 seconds.</msg>
 </errors>
 </robot>
