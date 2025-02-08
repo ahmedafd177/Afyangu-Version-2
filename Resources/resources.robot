@@ -3,6 +3,7 @@
 ${BROWSER}               chrome
 ${URL}                  https://afyangu.kenya-hie.health/
 ${URL_SIGN_IN}          ${URL}/sign-in
+${RESET_LINK}           ${URL}/pin-reset
 ${TIMEOUT}              10s
 
 
@@ -57,4 +58,17 @@ ${OTP_INPUT_LOGIN}             xpath:/html/body/div/main/div/div[2]/div/form/div
 ${OTP_PROCEED_BUTTON}          xpath:/html/body/div/main/div/div[2]/div/form/div[2]/button[2]
 ${ERROR_MESSAGE}               xpath:/html/body/div/div[1]/div/div/div[1]/div[2]
 
-# Reset PIN Flow Locators
+
+# Reset PIN Page Elements
+${RESET_PIN_LINK_TEXT}                    xpath:/html/body/div/div[3]/div/form/div[6]/a
+${INPUT_ID_RESET}                   xpath:/html/body/div/div[2]/div/form/div[3]/div[2]/input
+${PROCEED_RESET}                    xpath:/html/body/div/div[2]/div/form/button
+${SEND_CODE_SELECT}                 xpath:/html/body/div/main/div/div/div[2]/button
+${SEND_CODE_BUTTON_RESET}           xpath=/html/body/div/main/div/div/button
+${OTP_INPUT_RESET}                        xpath:/html/body/div/main/div/div[2]/div/form/div[1]/div/div/div[2]/input
+${OTP_PROCEED_BUTTON}               xpath:/html/body/div/main/div/div[2]/div/form/div[2]/button[2]
+${NEW_PIN_INPUT}                    xpath:/html/body/div/main/div/div/div[2]/div/div/div/form/div[1]/div/div[1]/div[2]/input
+${HIDE_PIN_1}                        xpath:/html/body/div/main/div/div/div[2]/div/div/div/form/div[1]/div/div[2]/img
+${CONFIRM_PIN_INPUT_RESET}                xpath:/html/body/div/main/div/div/div[2]/div/div/div/form/div[2]/div/div[1]/div[2]/input
+${HIDE_PIN_2}                        xpath:/html/body/div/main/div/div/div[2]/div/div/div/form/div[2]/div/div[2]/img
+${PROCEED_RST_2}                    xpath:/html/body/div/main/div/div/div[2]/div/div/div/form/button[2]

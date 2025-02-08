@@ -33,7 +33,7 @@ Invalid PIN Test
     Perform Invalid Login     ${USER_ID}    ${INVALID_USER_PIN}
     #Error pops up
     Log    Invalid ID.
-    Sleep    2s
+    Sleep        2s
     Close Browser
 
 *** Keywords ***
