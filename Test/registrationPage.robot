@@ -1,61 +1,111 @@
+# Tests/registration_tests.robot
 *** Settings ***
-Library           SeleniumLibrary
-Library           Dialogs
-Resource         ../Resources/resources.robot
-Library           SeleniumLibrary
+Documentation     Registration tests for Afyangu V2 Website
+Library    SeleniumLibrary
+Library    Dialogs
+Resource          ../Resources/resources.robot
+Resource          ../Data/test_data.robot
+Test Setup        Open Afyangu Website
+Test Teardown     Close Afyangu Website
 
 *** Test Cases ***
-Registration Workflow
-    [Tags]    registration    otp
-    [Documentation]   Test registration workflow including OTP verification and PIN setup.
+Complete Registration Process
+    [Documentation]    Complete registration process with valid data
+    [Timeout]    5 minutes
+    Complete Registration Flow
+*** Keywords ***
+Open Afyangu Website
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
-    Sleep    3s
+    Set Selenium Implicit Wait    10
 
-    # Start registration process
-    Wait Until Element Is Visible    ${REGISTER_BUTTON}    timeout=10s
-    Click Element                    ${REGISTER_BUTTON}
+Open Afyangu Login
+    Open Browser    ${URL_SIGN_IN}    ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Implicit Wait    10
 
-    Wait Until Element Is Visible    ${PROCEED_BUTTON}    timeout=10s
-    Click Element                    ${PROCEED_BUTTON}
+Close Afyangu Website
+    Close All Browsers
 
-    # Fill out registration details
-    Wait Until Element Is Visible    ${ID_NO}    timeout=10s
-    Input Text                       ${ID_NO}        357952441
-    Sleep    3s
-    Input Text                       ${FIRST_NAME}   Umi
-    Sleep    3s
-    Input Text                       ${PHONE_NO}     756370837
-    Sleep    3s
+Complete Registration Flow
+    Click Registration Button
+    Click Initial Proceed Button
+    Fill Registration Form
+    Click Final Proceed Button
+    Handle OTP Verification
+    Create PIN
+    Complete Final Steps
 
-    Click Element                    ${PROCEED_BUTTON_2}
-
-    # OTP selection and sending code
-    Wait Until Element Is Visible    ${SELECT_OPTION}    timeout=10s
+Complete Final Steps
+    # Click proceed after PIN creation success
+    Wait Until Element Is Visible    ${SUCCESS_PROCEED}    ${TIMEOUT}
+    Click Element    ${SUCCESS_PROCEED}
     Sleep    5s
-    Click Element                    ${SELECT_OPTION}
-    sleep     3s
-    Wait Until Element Is Visible    ${SEND_CODE_BUTTON}    timeout=10s
-    Click Element                    ${SEND_CODE_BUTTON}
 
-    # OTP Entry: prompt user to enter OTP
-    Wait Until Element Is Visible    ${OTP_INPUT}    timeout=10s
-    ${otp}=    Get Value From User    Please enter the OTP number:
-    Input Text                       ${OTP_INPUT}    ${otp}
-    Click Element                    ${PROCEED_BUTTON_3}
-    Sleep    3s
+    # Click continue registration on info page
+    Wait Until Element Is Visible    ${CONTINUE_REG}    ${TIMEOUT}
+    Click Element    ${CONTINUE_REG}
+    Sleep    5s
 
-    # PIN Setup
-    Wait Until Element Is Visible    ${PIN_INPUT}    timeout=10s
-    Input Text                       ${PIN_INPUT}           3435
-    Click Element                    ${HIDE_PASSWORD_RG}
+Click Registration Button
+    Wait Until Element Is Visible    ${REGISTRATION_BUTTON}    ${TIMEOUT}
+    Click Element    ${REGISTRATION_BUTTON}
+    Sleep    5s
+    Log    Clicked Registration Button
+
+Click Initial Proceed Button
+    Wait Until Element Is Visible    ${INITIAL_PROCEED}    ${TIMEOUT}
+    Click Element    ${INITIAL_PROCEED}
+    Log    Clicked Initial Proceed Button
+
+Fill Registration Form
+    Wait Until Element Is Visible    ${ID_NUMBER_INPUT}    ${TIMEOUT}
+    Input Text    ${ID_NUMBER_INPUT}    ${ID_NUMBER}
+    Sleep    1s
+    Input Text    ${FIRST_NAME_INPUT}    ${FIRST_NAME}
+    Input Text    ${PHONE_NUMBER_INPUT}    ${PHONE_NUMBER}
+    Sleep    1s
+    Log    Filled Registration Form
+
+Click Final Proceed Button
+#    Wait Until Element Is Visible    ${FINAL_PROCEED}    ${TIMEOUT}
+    Click Element    ${FINAL_PROCEED}
     Sleep    2s
-    Input Text                       ${CONFIRM_PIN_INPUT}   3435
-    Click Element                    ${HIDE_PASSWORD_RG_2}
-    Sleep    4s
-    Click Element                    ${FINAL_SUBMIT}
-    Sleep    3s
+    Log    Clicked Final Proceed Button
 
-    # Optionally, add validations to confirm successful registration
+Handle OTP Verification
+    Click Element    ${CHECKBOX}
+    Sleep    2s
 
-    Close Browser
+    # Click send code button
+    Wait Until Element Is Visible    ${SEND_CODE_BUTTON}    ${TIMEOUT}
+    Click Element    ${SEND_CODE_BUTTON}
+    Sleep    5s
+
+    # Wait for OTP input field and get OTP from user
+    Wait Until Element Is Visible    ${OTP_INPUT}    ${TIMEOUT}
+    ${otp}=    Get Value From User    Please enter the OTP received:
+    Input Text    ${OTP_INPUT}    ${otp}
+    Sleep    2s
+
+    # Click proceed after OTP input
+    Wait Until Element Is Visible    ${OTP_PROCEED}    ${TIMEOUT}
+    Click Element    ${OTP_PROCEED}
+    Sleep    5s
+
+Create PIN
+    # Wait for PIN input fields
+    Wait Until Element Is Visible    ${PIN_INPUT}    ${TIMEOUT}
+    Wait Until Element Is Visible    ${CONFIRM_PIN_INPUT}    ${TIMEOUT}
+
+    # Input 1234 in both PIN fields
+    Input Text            ${PIN_INPUT}            ${PIN_NUMBER}
+    Click Element        ${HIDE_PASSWORD_RG}
+    Input Text            ${CONFIRM_PIN_INPUT}    ${PIN_NUMBER}
+    Click Element        ${HIDE_PASSWORD_RG_2}
+    Sleep    2s
+
+    # Click proceed
+    Wait Until Element Is Visible    ${PIN_PROCEED}    ${TIMEOUT}
+    Click Element    ${PIN_PROCEED}
+    Sleep    5s

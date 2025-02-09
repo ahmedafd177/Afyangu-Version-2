@@ -13,7 +13,7 @@ Valid Login Test
     [Documentation]    Executes the login workflow with a valid user ID and valid PIN.
     Perform Login        ${USER_ID}    ${USER_PIN}
     Verify OTP Manually
-    Sleep    2s
+    Sleep            2s
     Close Browser
 
 Invalid ID Test
